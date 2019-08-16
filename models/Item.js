@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const ItemSchema = new Schema({
+	creation_date: {
+		type: Date,
+		default: Date.now
+	},
 	date: {
 		type: Date,
 		required: true
@@ -30,6 +34,11 @@ const ItemSchema = new Schema({
 	custDue: {
 		type: Number,
 		required: false
+	},
+	custPaid: {
+		type: Number,
+		required: false,
+		default: 0.0
 	},
 	custPaidDate: {
 		type: Date,
@@ -71,8 +80,26 @@ const ItemSchema = new Schema({
 		type: Number,
 		required: false
 	},
+	nysTaxPaid: {
+		type: Number,
+		required: false,
+		default: 0
+	},
+	nysTaxPaidDate: {
+		type: Date,
+		required: false
+	},
 	caTax: {
 		type: Number,
+		required: false
+	},
+	caTaxPaid: {
+		type: Number,
+		required: false,
+		default: 0
+	},
+	caTaxPaidDate: {
+		type: Date,
 		required: false
 	},
 	net: {
@@ -90,6 +117,39 @@ const ItemSchema = new Schema({
 	notes: {
 		type: String,
 		required: false
+	},
+	lastUpdated: {
+		type: String,
+		default: "Order has never been editted"
+	},
+	orderSkus: {
+		type: Array,
+		required: false
+	},
+	billToAddress: {
+		type: String,
+		required: false
+	},
+	shipToAddress: {
+		type: String,
+		required: false
+	},
+	billToState: {
+		type: String,
+		required: false
+	},
+	billToZip: {
+		type: String,
+		required: false
+	},
+	shipToZip: {
+		type: String,
+		required: false
+	},
+	netPaid: {
+		type: Number,
+		required: false,
+		default: 0.0
 	}
 });
 

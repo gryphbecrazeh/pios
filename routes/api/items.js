@@ -8,7 +8,7 @@ const Item = require("../../models/Item");
 // @route GET api/items
 // @desc get ALL items
 // @accesss PUBLIC
-router.get("/", auth, (req, res) => {
+router.get("/", (req, res) => {
 	Item.find()
 		.sort({ date: -1 })
 		.then(items => res.json(items));
@@ -16,7 +16,12 @@ router.get("/", auth, (req, res) => {
 // @route POST api/items
 // @desc create item
 // @accesss Private
-router.post("/", auth, (req, res) => {
+router.post("/", (req, res) => {
+	let { name, orderNum, date } = req.body;
+	// Simple Validation
+	if (!name || !orderNum || !date) {
+		return res.status(400).json({ msg: "Please Enter ALL Required Fields" });
+	}
 	const newItem = new Item({
 		name: req.body.name,
 		orderNum: req.body.orderNum,
@@ -43,6 +48,20 @@ router.post("/", auth, (req, res) => {
 	});
 	newItem.save().then(item => res.json(item));
 });
+
+// @route PUT api/items:id
+// @desc edit item
+// @accesss Private
+router.put("/:id", (req, res) => {
+	const { order } = req.body;
+	Item.findByIdAndUpdate(order._id, order, { useFindAndModify: false }).catch(
+		err => {
+			res.json(err);
+			console.log(err);
+		}
+	);
+});
+
 // @route DELETE api/items:id
 // @desc delete item
 // @accesss Private

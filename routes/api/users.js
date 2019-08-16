@@ -22,13 +22,29 @@ router.delete("/:id", (req, res) => {
 		.then(user => user.remove().then(() => res.json({ success: true })))
 		.catch(err => res.status(404).json({ success: false }));
 });
-// @route EDIT api/users:id
+
+// @route PUT api/users:id
 // @desc edit user
 // @accesss Private
-router.delete("/:id", (req, res) => {
-	User.findById(req.params.id)
-		.then(user => user.remove().then(() => res.json({ success: true })))
-		.catch(err => res.status(404).json({ success: false }));
+router.put("/:id", (req, res) => {
+	const { id, name, email, password } = req.body;
+	// Simple Validation
+	let newPassword;
+	// Create salt & hash
+	bcrypt.genSalt(10, (err, salt) => {
+		bcrypt.hash(password, salt, (err, hash) => {
+			if (err) throw err;
+			newPassword = hash;
+			let updatedUser = {
+				id,
+				name,
+				email
+			};
+			updatedUser.password = newPassword;
+			// Check Existing User
+			User.findByIdAndUpdate(id, updatedUser, { useFindAndModify: false });
+		});
+	});
 });
 
 // @route POST api/Users
