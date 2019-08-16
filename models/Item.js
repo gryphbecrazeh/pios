@@ -8,7 +8,7 @@ const ItemSchema = new Schema({
 		required: true
 	},
 	orderNum: {
-		type: Number,
+		type: String,
 		required: true
 	},
 	name: {
@@ -17,7 +17,7 @@ const ItemSchema = new Schema({
 	},
 	st: {
 		type: String,
-		required: true
+		required: false
 	},
 	mfr: {
 		type: String,
@@ -29,7 +29,7 @@ const ItemSchema = new Schema({
 	},
 	custDue: {
 		type: Number,
-		required: true
+		required: false
 	},
 	custPaidDate: {
 		type: Date,
@@ -37,7 +37,7 @@ const ItemSchema = new Schema({
 	},
 	netDue: {
 		type: Number,
-		required: true
+		required: false
 	},
 	netPaidDate: {
 		type: Date,

@@ -1,0 +1,4 @@
+{
+	"mongoURI": "mongodb://build:pass@localhost/PIOS",
+	"jwtSecret": "pios_myJwtSecret"
+}
