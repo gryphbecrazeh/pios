@@ -58,7 +58,8 @@ const ItemSchema = new Schema({
 	},
 	addrCheck: {
 		type: Boolean,
-		required: false
+		required: false,
+		default:false
 	},
 	rcvd: {
 		type: String,

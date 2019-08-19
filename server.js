@@ -24,6 +24,7 @@ mongoose
 app.use( "/api/items", require( "./routes/api/items" ) );
 app.use( "/api/users", require( "./routes/api/users" ) );
 app.use( "/api/auth", require( "./routes/api/auth" ) );
+app.use("/api/payments",require("./routes/api/payments"))
 const port = process.env.PORT || 5000;
 
 app.listen( port, () => console.log( `Sever started on port ${ port }` ) );

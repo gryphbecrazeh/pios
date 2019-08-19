@@ -5,12 +5,13 @@ const Schema = mongoose.Schema;
 const PaymentSchema = new Schema({
 	order_number: {
 		type: String,
-		required: true
+        required: true,
+        unique:false
 	},
 	order_id: {
 		type: String,
 		required: true,
-		unique: true
+		unique: false
 	},
 	payment_type: {
 		type: String,

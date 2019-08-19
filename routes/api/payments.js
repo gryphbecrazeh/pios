@@ -7,10 +7,11 @@ const Payment = require("../../models/Payment");
 // @desc get ALL payments
 // @accesss PUBLIC
 router.get("/", (req, res) => {
-	console.log(req.body)
-	Payment.findOne()
+	Payment.find()
 		.sort({ date: -1 })
-		.then(users => res.json(users));
+		.then(payments => {
+			return res.json(payments)
+		});
 });
 // @route DELETE api/payments:id
 // @desc delete payment
@@ -32,13 +33,14 @@ router.put("/:id", (req, res) => {
 // @accesss Private
 router.post("/", (req, res) => {
 	const { order_id,order_number,payment_type,payment_date,total_due,total_paid,remaining_balance,user } = req.body;
-
 	// Simple Validation
-	if (!order_id ||!order_number||!payment_type||!payment_date||!total_due||!total_paid||!remaining_balance||!user) {
+	if (!order_id ||!order_number||!payment_type||!payment_date||!total_due||!total_paid||!user) {
 		return res.status(400).json({ msg: "Please Enter All Fields" });
 	}
 	let newPayment = new Payment(req.body)
-	newPayment.save().then(item => res.json(item));
+	newPayment.save().then(item => {
+		return res.json(item)
+	});
 });
 
 module.exports = router;
