@@ -9,6 +9,6 @@
 // 			]
 // }
 
-module.exports = {
-	mongoURI: "mongodb://build:pass@localhost/PIOS"
-};
+// module.exports = {
+// 	mongoURI: "mongodb://build:pass@localhost/PIOS"
+// };
