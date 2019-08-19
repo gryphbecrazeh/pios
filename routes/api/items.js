@@ -12,17 +12,14 @@ const cache = [];
 // @desc get ALL items
 // @accesss PUBLIC
 router.get("/", (req, res) => {
-	if (cache[req.body.values]) res.json(cache[req.body.values]);
-	else {
-		Item.find()
-			.sort({ date: -1 })
-			.then(items => {
-				// add filter of results here
-				let results = items.map(item => item[req.body.values]);
-				cache[req.body.values] === results;
-				return res.json(results);
-			});
-	}
+	let { filters } = req.body;
+	Item.find()
+		.sort({ date: -1 })
+		.then(items => {
+			// add filter of results here
+			let results = items;
+			return res.json(results);
+		});
 });
 // @route POST api/items
 // @desc create item

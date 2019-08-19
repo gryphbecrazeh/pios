@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 	Payment.find()
 		.sort({ date: -1 })
 		.then(payments => {
-			return res.json(payments)
+			return res.json(payments);
 		});
 });
 // @route DELETE api/payments:id
@@ -25,21 +25,39 @@ router.delete("/:id", (req, res) => {
 // @route PUT api/payments:id
 // @desc edit payment
 // @accesss Private
-router.put("/:id", (req, res) => {
-});
+router.put("/:id", (req, res) => {});
 
 // @route POST api/payments
 // @desc make new payment
 // @accesss Private
 router.post("/", (req, res) => {
-	const { order_id,order_number,payment_type,payment_date,total_due,total_paid,remaining_balance,user } = req.body;
+	const {
+		order_id,
+		order_number,
+		payment_type,
+		payment_date,
+		total_due,
+		total_paid,
+		user
+	} = req.body;
 	// Simple Validation
-	if (!order_id ||!order_number||!payment_type||!payment_date||!total_due||!total_paid||!user) {
+	if (
+		!order_id ||
+		!order_number ||
+		!payment_type ||
+		!payment_date ||
+		!total_due ||
+		!total_paid ||
+		!user
+	) {
 		return res.status(400).json({ msg: "Please Enter All Fields" });
 	}
-	let newPayment = new Payment(req.body)
+	let newPayment = new Payment(req.body);
+	console.log("req.body", req.body);
+	console.log("newPayment", newPayment);
 	newPayment.save().then(item => {
-		return res.json(item)
+		console.log("item", item);
+		return res.json(item);
 	});
 });
 
