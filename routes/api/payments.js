@@ -37,7 +37,8 @@ router.post("/", (req, res) => {
 	if (!order_id ||!order_number||!payment_type||!payment_date||!total_due||!total_paid||!remaining_balance||!user) {
 		return res.status(400).json({ msg: "Please Enter All Fields" });
 	}
-
+	let newPayment = new Payment(req.body)
+	newPayment.save().then(item => res.json(item));
 });
 
 module.exports = router;
