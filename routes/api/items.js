@@ -5,13 +5,24 @@ const auth = require("../../middleware/auth");
 // Item Model
 const Item = require("../../models/Item");
 
+// Cacheing
+const cache = [];
+
 // @route GET api/items
 // @desc get ALL items
 // @accesss PUBLIC
 router.get("/", (req, res) => {
-	Item.find()
-		.sort({ date: -1 })
-		.then(items => res.json(items));
+	if (cache[req.body.values]) res.json(cache[req.body.values]);
+	else {
+		Item.find()
+			.sort({ date: -1 })
+			.then(items => {
+				// add filter of results here
+				let results = items.map(item => item[req.body.values]);
+				cache[req.body.values] === results;
+				return res.json(results);
+			});
+	}
 });
 // @route POST api/items
 // @desc create item
@@ -54,7 +65,7 @@ router.post("/", (req, res) => {
 // @accesss Private
 router.put("/:id", (req, res) => {
 	const { order } = req.body;
-	console.log(order)
+	console.log(order);
 	Item.findByIdAndUpdate(order._id, order, { useFindAndModify: false }).catch(
 		err => {
 			res.json(err);
