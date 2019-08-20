@@ -8,7 +8,7 @@ const PaymentSchema = new Schema({
 		required: true,
 		unique: false
 	},
-	customer_order_id: {
+	customer_order: {
 		type: String,
 		required: true,
 		unique: false

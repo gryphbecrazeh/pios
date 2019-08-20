@@ -10,6 +10,12 @@ router.get("/:id", (req, res) => {
 	Payment.find()
 		.sort({ date: -1 })
 		.then(payments => {
+			console.log(
+				payments.filter(
+					payment => payment.order_number === req.params.id,
+					req.params.id
+				)
+			);
 			return res.json(
 				payments.filter(payment => payment.order_number === req.params.id)
 			);
@@ -34,7 +40,7 @@ router.put("/:id", (req, res) => {});
 // @accesss Private
 router.post("/", (req, res) => {
 	const {
-		customer_order_id,
+		customer_order,
 		order_number,
 		payment_type,
 		payment_date,
@@ -44,7 +50,7 @@ router.post("/", (req, res) => {
 	} = req.body;
 	// Simple Validation
 	if (
-		!customer_order_id ||
+		!customer_order ||
 		!order_number ||
 		!payment_type ||
 		!payment_date ||
@@ -52,6 +58,7 @@ router.post("/", (req, res) => {
 		!total_paid ||
 		!user
 	) {
+		console.log("failed to save payment, missing credentials");
 		return res.status(400).json({ msg: "Please Enter All Fields" });
 	}
 	let newPayment = new Payment(req.body);
