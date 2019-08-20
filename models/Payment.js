@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 const PaymentSchema = new Schema({
 	order_number: {
 		type: String,
-        required: true,
-        unique:false
+		required: true,
+		unique: false
 	},
-	order_id: {
+	customer_order_id: {
 		type: String,
 		required: true,
 		unique: false
@@ -20,27 +20,27 @@ const PaymentSchema = new Schema({
 	payment_date: {
 		type: Date,
 		default: Date.now
-    },
-    total_due:{
-        type:Number,
-        required:true
-    },
-    total_paid:{
-        type:Number,
-        required:true
-    },
-    remaining_balance:{
-        type:Number,
-        required:true
-    },
-    note:{
-        type:String,
-        required:false
-    },
-    user:{
-        type:String,
-        required:true
-    }
+	},
+	total_due: {
+		type: Number,
+		required: true
+	},
+	total_paid: {
+		type: Number,
+		required: true
+	},
+	remaining_balance: {
+		type: Number,
+		required: true
+	},
+	note: {
+		type: String,
+		required: false
+	},
+	user: {
+		type: String,
+		required: true
+	}
 });
 
 module.exports = Payment = mongoose.model("payment", PaymentSchema);

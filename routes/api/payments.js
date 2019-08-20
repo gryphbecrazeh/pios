@@ -6,11 +6,13 @@ const Payment = require("../../models/Payment");
 // @route GET api/payments
 // @desc get ALL payments
 // @accesss PUBLIC
-router.get("/", (req, res) => {
+router.get("/:id", (req, res) => {
 	Payment.find()
 		.sort({ date: -1 })
 		.then(payments => {
-			return res.json(payments);
+			return res.json(
+				payments.filter(payment => payment.order_number === req.params.id)
+			);
 		});
 });
 // @route DELETE api/payments:id
@@ -32,7 +34,7 @@ router.put("/:id", (req, res) => {});
 // @accesss Private
 router.post("/", (req, res) => {
 	const {
-		order_id,
+		customer_order_id,
 		order_number,
 		payment_type,
 		payment_date,
@@ -42,7 +44,7 @@ router.post("/", (req, res) => {
 	} = req.body;
 	// Simple Validation
 	if (
-		!order_id ||
+		!customer_order_id ||
 		!order_number ||
 		!payment_type ||
 		!payment_date ||
@@ -53,12 +55,12 @@ router.post("/", (req, res) => {
 		return res.status(400).json({ msg: "Please Enter All Fields" });
 	}
 	let newPayment = new Payment(req.body);
-	console.log("req.body", req.body);
-	console.log("newPayment", newPayment);
-	newPayment.save().then(item => {
-		console.log("item", item);
-		return res.json(item);
-	});
+	newPayment
+		.save()
+		.then(item => {
+			return res.json(item);
+		})
+		.catch(err => console.log(err));
 });
 
 module.exports = router;
