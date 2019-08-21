@@ -8,6 +8,13 @@ const PaymentSchema = new Schema({
 		required: true,
 		unique: false
 	},
+	payment_status: {
+		type: String,
+		default: "Pending"
+	},
+	payment_method: {
+		type: String
+	},
 	customer_order: {
 		type: String,
 		required: true,

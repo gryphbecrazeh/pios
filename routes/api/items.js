@@ -62,11 +62,11 @@ router.post("/", (req, res) => {
 // @accesss Private
 router.put("/:id", (req, res) => {
 	const { order } = req.body;
-	Item.findByIdAndUpdate(order._id, order, { useFindAndModify: false }).catch(
-		err => {
+	Item.findByIdAndUpdate(order._id, order, { useFindAndModify: false })
+		.then(res.json({ success: true }))
+		.catch(err => {
 			res.json(err);
-		}
-	);
+		});
 });
 
 // @route DELETE api/items:id
