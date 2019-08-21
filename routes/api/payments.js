@@ -11,10 +11,12 @@ router.get("/:id", (req, res) => {
 		.sort({ date: -1 })
 		.then(payments => {
 			console.log(
-				payments.filter(
-					payment => payment.order_number === req.params.id,
-					req.params.id
-				)
+				`${
+					payments.filter(
+						payment => payment.order_number === req.params.id,
+						req.params.id
+					).length
+				} item(s) found`
 			);
 			return res.json(
 				payments.filter(payment => payment.order_number === req.params.id)
