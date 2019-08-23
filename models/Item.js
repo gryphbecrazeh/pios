@@ -125,7 +125,8 @@ const ItemSchema = new Schema({
 	},
 	orderSkus: {
 		type: Array,
-		required: false
+		required: false,
+		default: []
 	},
 	billToAddress: {
 		type: String,
@@ -151,6 +152,10 @@ const ItemSchema = new Schema({
 		type: Number,
 		required: false,
 		default: 0.0
+	},
+	orderStatus: {
+		type: String,
+		default: "Pending"
 	}
 });
 

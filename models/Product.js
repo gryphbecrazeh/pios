@@ -28,6 +28,9 @@ const ProductSchema = new Schema({
 	},
 	distributer: {
 		type: String
+	},
+	brand: {
+		type: String
 	}
 });
 
