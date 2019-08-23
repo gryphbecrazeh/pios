@@ -21,10 +21,10 @@ router.get("/", (req, res) => {
 // @desc create product
 // @accesss Private
 router.post("/", (req, res) => {
-	let { sku, manufacturer, manufacturerSku, cost, weight } = req.body;
+	let { sku } = req.body;
 	let product = req.body;
 	// Simple Validation
-	if (!sku || !manufacturer || !manufacturerSku || !cost || !weight) {
+	if (!sku) {
 		return res.status(400).json({ msg: "Please Enter ALL Required Fields" });
 	}
 	const newProduct = new Product(product);
@@ -36,6 +36,7 @@ router.post("/", (req, res) => {
 // @accesss Private
 router.put("/:id", (req, res) => {
 	const { product } = req.body;
+	product.dateEditted = Date.now();
 	Product.findByIdAndUpdate(product._id, product, { useFindAndModify: false })
 		.then(res.json({ success: true }))
 		.catch(err => {

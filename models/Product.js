@@ -6,31 +6,58 @@ const ProductSchema = new Schema({
 	dateEditted: {
 		type: Date
 	},
+	status: {
+		type: String
+	},
 	sku: {
 		type: String,
 		required: true
 	},
 	manufacturer: {
 		type: String,
-		required: true
+		required: false
 	},
 	manufacturerSku: {
 		type: String,
-		required: true
+		required: false
 	},
 	cost: {
 		type: Number,
-		required: true
+		required: false
+	},
+	costDaroma: {
+		type: Number
 	},
 	weight: {
 		type: Number,
-		required: true
+		required: false
+	},
+	weightShip: {
+		type: Number
 	},
 	distributer: {
 		type: String
 	},
 	brand: {
 		type: String
+	},
+	price: {
+		type: Number
+	},
+	specialPrice: {
+		type: Number
+	},
+	priceMap: {
+		type: Number
+	},
+	priceLocal: {
+		type: Number
+	},
+	priceList: {
+		type: Number
+	},
+	price: {
+		type: Number
 	}
 });
 
