@@ -28,7 +28,10 @@ router.post("/", (req, res) => {
 		return res.status(400).json({ msg: "Please Enter ALL Required Fields" });
 	}
 	const newProduct = new Product(product);
-	newProduct.save().then(product => res.json(product));
+	newProduct
+		.save()
+		.then(product => res.json(product))
+		.catch(err => res.json(err));
 });
 
 // @route PUT api/products:id
