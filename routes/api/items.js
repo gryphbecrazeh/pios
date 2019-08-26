@@ -62,9 +62,10 @@ router.post("/", (req, res) => {
 // @accesss Private
 router.put("/:id", (req, res) => {
 	const { order } = req.body;
-	console.log(order);
 	Item.findByIdAndUpdate(order._id, order, { useFindAndModify: false })
-		.then(res.json({ success: true }))
+		.then(item => {
+			res.json({ success: true });
+		})
 		.catch(err => {
 			res.json(err);
 		});
