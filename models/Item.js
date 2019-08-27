@@ -13,7 +13,8 @@ const ItemSchema = new Schema({
 	},
 	orderNum: {
 		type: String,
-		required: true
+		required: true,
+		unique: true
 	},
 	name: {
 		type: String,
@@ -154,8 +155,11 @@ const ItemSchema = new Schema({
 		default: 0.0
 	},
 	orderStatus: {
-		type: String,
-		default: "Pending"
+		type: Array,
+		default: ["Pending"]
+	},
+	netTotal: {
+		type: Number
 	}
 });
 
