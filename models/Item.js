@@ -160,6 +160,14 @@ const ItemSchema = new Schema({
 	},
 	netTotal: {
 		type: Number
+	},
+	billToChecked: {
+		type: Boolean,
+		default: false
+	},
+	shipToChecked: {
+		type: Boolean,
+		default: false
 	}
 });
 
