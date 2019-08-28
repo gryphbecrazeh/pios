@@ -24,10 +24,6 @@ const ItemSchema = new Schema({
 		type: String,
 		required: false
 	},
-	mfr: {
-		type: String,
-		required: false
-	},
 	sentTo: {
 		type: String,
 		required: false
@@ -114,10 +110,6 @@ const ItemSchema = new Schema({
 	},
 	netFreight: {
 		type: Number,
-		required: false
-	},
-	notes: {
-		type: String,
 		required: false
 	},
 	lastUpdated: {
