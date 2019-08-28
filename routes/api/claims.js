@@ -41,7 +41,6 @@ router.post("/", (req, res) => {
 	const {
 		customer_order,
 		order_number,
-		note,
 		user,
 		subject,
 		category,
@@ -52,11 +51,11 @@ router.post("/", (req, res) => {
 	if (
 		!customer_order ||
 		!order_number ||
-		!note ||
 		!subject ||
 		!category ||
 		!date_reported ||
-		!purchase_date
+		!purchase_date ||
+		!body
 	) {
 		return res.status(400).json({ msg: "Please Enter All Fields" });
 	}

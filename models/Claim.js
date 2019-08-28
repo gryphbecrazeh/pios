@@ -21,13 +21,16 @@ const ClaimSchema = new Schema({
 		type: String,
 		required: true
 	},
+	body: {
+		type: String,
+		required: true
+	},
 	category: {
 		type: String,
 		required: true
 	},
 	note: {
-		type: String,
-		required: true
+		type: String
 	},
 	user: {
 		type: String,
@@ -54,7 +57,7 @@ const ClaimSchema = new Schema({
 		type: Date,
 		required: true
 	},
-	delivery_date: {
+	date_delivered: {
 		type: Date
 	},
 	amount_claim: {
