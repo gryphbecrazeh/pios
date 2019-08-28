@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const PaymentSchema = new Schema({
+	// Order Number
 	order_number: {
 		type: String,
 		required: true,
@@ -15,6 +16,7 @@ const PaymentSchema = new Schema({
 	payment_method: {
 		type: String
 	},
+	// Order _ID
 	customer_order: {
 		type: String,
 		required: true,

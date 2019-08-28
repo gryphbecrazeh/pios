@@ -11,6 +11,7 @@ router.get("/:id", (req, res) => {
 		.sort({ date: -1 })
 		.then(payments => {
 			return res.json(
+				// GET orders by Order number
 				payments.filter(payment => payment.order_number === req.params.id)
 			);
 		});
