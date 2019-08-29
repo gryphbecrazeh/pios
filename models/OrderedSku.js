@@ -51,17 +51,26 @@ const OrderedSkuSchema = new Schema({
 	price: {
 		type: Number
 	},
-	localPrice: {
+	priceLocal: {
 		type: Number
 	},
-	mapPrice: {
+	priceMap: {
 		type: Number
 	},
 	salePrice: {
 		type: Number
 	},
-	Cost: {
+	specialPrice: {
 		type: Number
+	},
+	priceList: {
+		type: Number
+	},
+	cost: {
+		type: Number
+	},
+	costDaroma: {
+		type: String
 	},
 	weight: {
 		type: Number
@@ -86,6 +95,13 @@ const OrderedSkuSchema = new Schema({
 	},
 	ship_dim_height: {
 		type: Number
+	},
+	sku: {
+		type: String
+	},
+	shipmentStatus: {
+		type: String,
+		default: "Pending"
 	}
 });
 

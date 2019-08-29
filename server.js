@@ -28,6 +28,7 @@ app.use("/api/payments", require("./routes/api/payments"));
 app.use("/api/products", require("./routes/api/products"));
 app.use("/api/notes", require("./routes/api/notes"));
 app.use("/api/claims", require("./routes/api/claims"));
+app.use("/api/orderedSkus", require("./routes/api/orderedSkus"));
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Sever started on port ${port}`));

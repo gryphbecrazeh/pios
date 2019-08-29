@@ -26,6 +26,7 @@ router.get("/:id", (req, res) => {
 // @desc delete orderedSku
 // @accesss Private
 router.delete("/:id", (req, res) => {
+	console.log(req.params.id);
 	OrderedSku.findById(req.params.id)
 		.then(orderedSku =>
 			orderedSku.remove().then(() => res.json({ success: true }))
@@ -38,8 +39,8 @@ router.delete("/:id", (req, res) => {
 // @accesss Private
 router.put("/:id", (req, res) => {});
 
-// @route POST api/claims
-// @desc make new claim
+// @route POST api/orderedSkus
+// @desc make new ordered Sku
 // @accesss Private
 router.post("/", (req, res) => {
 	const {

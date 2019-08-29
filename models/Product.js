@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 // Create Schema
 const ProductSchema = new Schema({
 	dateEditted: {
-		type: Date
+		type: Date,
+		default: Date.now()
 	},
 	status: {
 		type: String
@@ -54,9 +55,6 @@ const ProductSchema = new Schema({
 		type: Number
 	},
 	priceList: {
-		type: Number
-	},
-	price: {
 		type: Number
 	}
 });
