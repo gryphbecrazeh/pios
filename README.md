@@ -1,4 +1,32 @@
+TO DO
+
+CHANGE ALL EDIT REDUCERS TO GET REDUCERS SO THAT IT RETURNS THE UPDATED STATE, THAT WILL UPDATE ON CHANGE
+
+change payment view modal to show key label rather than key
+
+change payment modal to render all payable fields rather than the two specified
+add to payments tab
+
+Set order sheet to automatically apply status values once certain criteria is met
+
+create user roles, filter buttons based on user roles
+
+add minimize option to table columns
+
+add minimize option to alerts tab to make table take up more of the screen
+
+wrap filters in card with minimize option
+
+implement financial reports
+
 TO CREATE
+
+PERSONALIZED WELCOME PAGE WITH FAVORITED PAGES
+SAVED REPORTS
+SUBSCRIBED REPORTS
+CHANGELOG
+NOTIFICATIONS
+WATCHED ORDERS
 
 GET SERVER RESPONSE ON MODALS TO AUTO CLOSE OR DISPLAY ALERTS
 
@@ -125,3 +153,7 @@ MINIMIZE/MAXIMIZE COLUMNS
 GRAB ALL COLUMNS BY IDENTIFIER
 CHANGE WIDTH TO 1EM
 CHANGE BUTTON TO SHOW
+
+RESEARCH
+
+Dynamic pages for react to use for reports, printing order forms, claims forms, etc
