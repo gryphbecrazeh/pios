@@ -45,7 +45,7 @@ const ClaimSchema = new Schema({
 	},
 	claim_status: {
 		type: Array,
-		default: ["Active"]
+		default: ["Pending"]
 	},
 	manufacturer: {
 		type: String
@@ -53,7 +53,7 @@ const ClaimSchema = new Schema({
 	vendor: {
 		type: String
 	},
-	purchase_date: {
+	date_purchased: {
 		type: Date,
 		required: true
 	},
@@ -73,6 +73,18 @@ const ClaimSchema = new Schema({
 		type: String
 	},
 	replacement_skus: {
+		type: String
+	},
+	sku_condition: {
+		type: String
+	},
+	sku_tracking_number: {
+		type: String
+	},
+	skus_quantity: {
+		type: Number
+	},
+	claim_action: {
 		type: String
 	}
 });

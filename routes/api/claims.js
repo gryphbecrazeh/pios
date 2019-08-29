@@ -45,7 +45,8 @@ router.post("/", (req, res) => {
 		subject,
 		category,
 		date_reported,
-		purchase_date
+		date_purchased,
+		body
 	} = req.body;
 	// Simple Validation
 	if (
@@ -54,7 +55,7 @@ router.post("/", (req, res) => {
 		!subject ||
 		!category ||
 		!date_reported ||
-		!purchase_date ||
+		!date_purchased ||
 		!body
 	) {
 		return res.status(400).json({ msg: "Please Enter All Fields" });
