@@ -1,11 +1,22 @@
 TO DO
 
+troubleshoot new claims issue
+
+change page layout so that table can change size based on screen realestate available
+
+Redo Payment modal to have list view and be separate from add modal
+
+change ordersheet so that if this is a new order, it will only show required fields for placing a new order in red,
+edit will show all empty fields red
+!this.props.order?
+
+show required fields in notes modal
+
+show alerts on fails on all modals
+
+sent to fills in if all skus status are sent to vendor, if some list as false
+
 LOGIN MODAL ON ANY PAGE THIS.PROPS.AUTH.ISAUTHENTICATED?LOGINMODAL:NULL
-
-AUTO CLOSE
-THIS.PROPS.ERR.MSG====[ACTION] SUCCESSFUL?THIS.TOGGLE():NULL
-
-CHANGE ALL EDIT REDUCERS TO GET REDUCERS SO THAT IT RETURNS THE UPDATED STATE, THAT WILL UPDATE ON CHANGE
 
 change payment view modal to show key label rather than key
 
