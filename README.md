@@ -1,5 +1,19 @@
 TO DO
 
+OVERHAUL GET ITEMS
+RECEIVE REQUIREMENTS FROM PAGES
+MASTER HAS NONE
+SHIPPING NEEDS TO BE READY AND UP (SENT TO, SHIPPING, SHIPPED, DELIVERED, ETC...)
+RECEIVE FILTERS FROM FILTERS
+START DATE
+END DATE
+SEARCH QUERY
+NEED TO STORE ALL OF THESE IN JSON
+CACHE THE RESULT IN THE CACHE OF THE SERVER AS A STRINGIFIED JSON OBJECT
+PULL FROM CACHE IF AVAILABLE, ELSE PULL FROM SERVER AND THEN CACHE
+
+change order status render on front end to better display statuses, need to overhaul the table generator
+
 troubleshoot new claims issue
 
 change page layout so that table can change size based on screen realestate available

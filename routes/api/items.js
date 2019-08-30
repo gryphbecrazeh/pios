@@ -12,19 +12,56 @@ const cache = [];
 // @desc get ALL items
 // @accesss PUBLIC
 router.get("/", (req, res) => {
-	let { filters } = req.body;
+	let { filters } = req.query;
+	let getReqFilters = JSON.parse(filters);
+	// console.log(getReqFilters);
+	filterDate = array => {
+		if (array) {
+			let range1 = getReqFilters.sortStart;
+			let range2 = getReqFilters.sortEnd;
+			let arrangeDates = range2 > range1;
+			let start = arrangeDates === true ? range1 : range2;
+			let end = arrangeDates === true ? range2 : range1;
+			// Determine if show all is active, if it is, return the unfiltered result
+			let result = !getReqFilters.showAll
+				? array.filter(
+						item => new Date(item.date) >= start && new Date(item.date) <= end
+				  )
+				: array;
+			return result;
+		}
+		return array;
+	};
+	filterQuery = array => {
+		if (array) {
+			let result = array.filter(
+				item =>
+					item.name.match(new RegExp(getReqFilters.searchQuery, "gmi")) ||
+					item.orderNum.match(new RegExp(getReqFilters.searchQuery, "gmi"))
+			);
+			return getReqFilters.searchQuery !== null || "" ? result : array;
+		}
+		return array;
+	};
+	console.log(cache);
+	if (cache[filters]) return res.json(cache[filters]);
 	Item.find()
 		.sort({ date: -1 })
 		.then(items => {
 			// add filter of results here
-			let results = items;
-			return res.json(results);
+			let results = filterQuery(filterDate(items));
+			cache[filters] = results;
+			return res.json({
+				items: items,
+				filteredResults: results
+			});
 		});
 });
 // @route POST api/items
 // @desc create item
 // @accesss Private
 router.post("/", (req, res) => {
+	cache = [];
 	let { name, orderNum, date } = req.body;
 	// Simple Validation
 	if (!name || !orderNum || !date) {
@@ -42,6 +79,7 @@ router.post("/", (req, res) => {
 // @desc edit item
 // @accesss Private
 router.put("/:id", (req, res) => {
+	cache = [];
 	const { order } = req.body;
 	Item.findByIdAndUpdate(order._id, order, { useFindAndModify: false })
 		.then(item => {
@@ -56,6 +94,7 @@ router.put("/:id", (req, res) => {
 // @desc delete item
 // @accesss Private
 router.delete("/:id", auth, (req, res) => {
+	cache = [];
 	Item.findById(req.params.id)
 		.then(item => item.remove().then(() => res.json({ success: true })))
 		.catch(err => res.status(404).json({ success: false }));
