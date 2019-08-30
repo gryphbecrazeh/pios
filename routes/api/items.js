@@ -13,8 +13,6 @@ const cache = [];
 // @accesss PUBLIC
 router.get("/", (req, res) => {
 	let { filters } = req.query;
-	let getReqFilters = JSON.parse(filters);
-	// console.log(getReqFilters);
 	filterDate = array => {
 		if (array) {
 			let range1 = getReqFilters.sortStart;
@@ -43,19 +41,30 @@ router.get("/", (req, res) => {
 		}
 		return array;
 	};
-	console.log(cache);
-	if (cache[filters]) return res.json(cache[filters]);
-	Item.find()
-		.sort({ date: -1 })
-		.then(items => {
-			// add filter of results here
-			let results = filterQuery(filterDate(items));
-			cache[filters] = results;
-			return res.json({
-				items: items,
-				filteredResults: results
+	getAllItems = () => {
+		Item.find()
+			.sort({ date: -1 })
+			.then(items => {
+				return res.json({
+					items: items
+				});
 			});
-		});
+	};
+	getFilteredItems = () => {
+		if (cache[filters]) return res.json(cache[filters]);
+		Item.find()
+			.sort({ date: -1 })
+			.then(items => {
+				// add filter of results here
+				let results = filterQuery(filterDate(items));
+				cache[filters] = results;
+				return res.json({
+					items: items,
+					filteredResults: items
+				});
+			});
+	};
+	filters ? getFilteredItems() : getAllItems();
 });
 // @route POST api/items
 // @desc create item

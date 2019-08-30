@@ -12,6 +12,8 @@ NEED TO STORE ALL OF THESE IN JSON
 CACHE THE RESULT IN THE CACHE OF THE SERVER AS A STRINGIFIED JSON OBJECT
 PULL FROM CACHE IF AVAILABLE, ELSE PULL FROM SERVER AND THEN CACHE
 
+USER -> PAGES -> FILTERS -> SERVER -> ITEMS -> ALERTS
+
 change order status render on front end to better display statuses, need to overhaul the table generator
 
 troubleshoot new claims issue
