@@ -12,7 +12,8 @@ const cache = [];
 // @desc get ALL items
 // @accesss PUBLIC
 router.get("/", (req, res) => {
-	let { filters } = req.query;
+	let { sendFilters } = req.query;
+	let getReqFilters = JSON.parse(sendFilters) || null;
 	filterDate = array => {
 		if (array) {
 			let range1 = getReqFilters.sortStart;
@@ -23,7 +24,9 @@ router.get("/", (req, res) => {
 			// Determine if show all is active, if it is, return the unfiltered result
 			let result = !getReqFilters.showAll
 				? array.filter(
-						item => new Date(item.date) >= start && new Date(item.date) <= end
+						item =>
+							new Date(item.date) >= new Date(start) &&
+							new Date(item.date) <= new Date(end)
 				  )
 				: array;
 			return result;
@@ -51,20 +54,25 @@ router.get("/", (req, res) => {
 			});
 	};
 	getFilteredItems = () => {
-		if (cache[filters]) return res.json(cache[filters]);
+		if (cache[req.url]) {
+			return res.json(cache[req.url]);
+		}
+
 		Item.find()
 			.sort({ date: -1 })
 			.then(items => {
 				// add filter of results here
 				let results = filterQuery(filterDate(items));
-				cache[filters] = results;
-				return res.json({
+				let response = {
 					items: items,
-					filteredResults: items
-				});
+					filteredResults: results
+				};
+				cache[req.url] = response;
+				return res.json(response);
 			});
 	};
-	filters ? getFilteredItems() : getAllItems();
+	getReqFilters ? getFilteredItems() : getAllItems();
+	// getAllItems();
 });
 // @route POST api/items
 // @desc create item
