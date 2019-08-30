@@ -30,7 +30,13 @@ router.post("/", (req, res) => {
 	const newProduct = new Product(product);
 	newProduct
 		.save()
-		.then(product => res.json(product))
+		.then(product =>
+			res.json({
+				item: product,
+				success: true,
+				msg: "Product Added to DB"
+			})
+		)
 		.catch(err => res.json(err));
 });
 

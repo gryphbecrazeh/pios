@@ -162,3 +162,5 @@ CHANGE BUTTON TO SHOW
 RESEARCH
 
 Dynamic pages for react to use for reports, printing order forms, claims forms, etc
+
+Adding Slack onto welcome screen, as well as pushing alerts to slack

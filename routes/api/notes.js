@@ -55,7 +55,11 @@ router.post("/", (req, res) => {
 	newNote
 		.save()
 		.then(item => {
-			return res.json(item);
+			return res.json({
+				item: item,
+				success: true,
+				msg: "Note Added"
+			});
 		})
 		.catch(err => console.log(err));
 });

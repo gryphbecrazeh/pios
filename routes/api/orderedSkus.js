@@ -26,7 +26,6 @@ router.get("/:id", (req, res) => {
 // @desc delete orderedSku
 // @accesss Private
 router.delete("/:id", (req, res) => {
-	console.log(req.params.id);
 	OrderedSku.findById(req.params.id)
 		.then(orderedSku =>
 			orderedSku.remove().then(() => res.json({ success: true }))
@@ -63,7 +62,11 @@ router.post("/", (req, res) => {
 	newOrderedSku
 		.save()
 		.then(item => {
-			return res.json(item);
+			return res.json({
+				item: item,
+				success: true,
+				msg: "Item Added to Order"
+			});
 		})
 		.catch(err => console.log(err));
 });

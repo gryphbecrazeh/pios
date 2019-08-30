@@ -60,7 +60,11 @@ router.post("/", (req, res) => {
 	newPayment
 		.save()
 		.then(item => {
-			return res.json(item);
+			return res.json({
+				item: item,
+				success: true,
+				msg: "Payment Added to Order"
+			});
 		})
 		.catch(err => console.log(err));
 });

@@ -69,7 +69,11 @@ router.post("/", (req, res) => {
 	newClaim
 		.save()
 		.then(item => {
-			return res.json(item);
+			return res.json({
+				item: item,
+				success: true,
+				msg: "Claim Created"
+			});
 		})
 		.catch(err => console.log(err));
 });
