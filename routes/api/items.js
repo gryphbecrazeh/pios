@@ -6,14 +6,14 @@ const auth = require("../../middleware/auth");
 const Item = require("../../models/Item");
 
 // Cacheing
-const cache = [];
+let cache = [];
 
 // @route GET api/items
 // @desc get ALL items
 // @accesss PUBLIC
 router.get("/", (req, res) => {
-	let { sendFilters } = req.query;
-	let getReqFilters = JSON.parse(sendFilters) || null;
+	let sendFilters = req.query.sendFilters ? req.query.sendFilters : null;
+	let getReqFilters = sendFilters !== null ? JSON.parse(sendFilters) : null;
 	filterDate = array => {
 		if (array) {
 			let range1 = getReqFilters.sortStart;
@@ -71,7 +71,7 @@ router.get("/", (req, res) => {
 				return res.json(response);
 			});
 	};
-	getReqFilters ? getFilteredItems() : getAllItems();
+	getReqFilters !== null ? getFilteredItems() : getAllItems();
 	// getAllItems();
 });
 // @route POST api/items
