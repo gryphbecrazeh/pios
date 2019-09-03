@@ -18,9 +18,10 @@ router.get("/", (req, res) => {
 		if (array) {
 			let range1 = getReqFilters.sortStart;
 			let range2 = getReqFilters.sortEnd;
-			let arrangeDates = range2 > range1;
+			let arrangeDates = new Date(range2) > new Date(range1);
 			let start = arrangeDates === true ? range1 : range2;
 			let end = arrangeDates === true ? range2 : range1;
+
 			// Determine if show all is active, if it is, return the unfiltered result
 			let result = !getReqFilters.showAll
 				? array.filter(

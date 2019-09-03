@@ -1,3 +1,8 @@
+BUGS
+date sorted items disappear for a week after their order date
+visible day of their order date
+disappear 8/30-9/3
+
 TO DO
 
 ADD IN ABILITY TO ADD OPTIONS TO THE PRODUCTS
