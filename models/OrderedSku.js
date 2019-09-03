@@ -102,6 +102,25 @@ const OrderedSkuSchema = new Schema({
 	shipmentStatus: {
 		type: String,
 		default: "Pending"
+	},
+	last_updated: {
+		type: Date,
+		default: Date.now()
+	},
+	sent_to: {
+		type: String
+	},
+	sent_to_date: {
+		type: Date
+	},
+	options: {
+		type: String
+	},
+	received_date: {
+		type: Date
+	},
+	received_quantity: {
+		type: Number
 	}
 });
 

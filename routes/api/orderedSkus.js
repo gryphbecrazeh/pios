@@ -7,9 +7,14 @@ const OrderedSku = require("../../models/OrderedSku");
 // @route GET api/orderedSkus
 // @desc get ALL orderedSkus for an order
 // @accesss PUBLIC
-router.get("/:id", (req, res) => {
+router.get("/", (req, res) => {
 	OrderedSku.find()
 		.sort({ date: -1 })
+		.then(orderedSkus => res.json(orderedSkus));
+});
+router.get("/:id", (req, res) => {
+	OrderedSku.find()
+		.sort({ date: 1 })
 		.then(orderedSku => {
 			if (req.params.id) {
 				return res.json(
@@ -17,8 +22,6 @@ router.get("/:id", (req, res) => {
 						orderedSku => orderedSku.order_number === req.params.id
 					)
 				);
-			} else {
-				return res.json(orderedSku);
 			}
 		});
 });
