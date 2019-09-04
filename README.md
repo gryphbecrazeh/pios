@@ -67,7 +67,7 @@ SHIPPING NEEDS TO BE READY AND UP (SENT TO, SHIPPING, SHIPPED, DELIVERED, ETC...
 Redo Payment modal to have list view and be separate from add modal
 
 change ordersheet so that if this is a new order, it will only show required fields for placing a new order in red,
-edit will show all empty fields red
+#edit will show all empty fields red
 !this.props.order?
 
 #show required fields in notes modal
@@ -85,7 +85,8 @@ add to payments tab
 
 Set order sheet to automatically apply status values once certain criteria is met
 
-create user roles, filter buttons based on user roles
+#create user roles
+filter buttons based on user roles
 
 add minimize option to table columns
 
@@ -160,15 +161,18 @@ LOADING BACKDROP, WITH SPINNER
 
 REACT TRANSITIONS
 
-PRODUCT COLLECTION
+#PRODUCT COLLECTION
 CHANGE GET BEHAVIOR TO MAKE GET REQUESTS ON CHANGE, STORE RESULTS IN CACHE
-SKU BUTTONS NEED TO SHOW BRAND AND COST (MAYBE)
+#SKU BUTTONS NEED TO SHOW BRAND AND COST (MAYBE)
 
 USERS
-USER ROLES
-MULTI SELECT, CHANGE MODALS TO AUTH.USER.ROLES.FIND(ROLE=>ROLE===INTENDED ROLE)
-APPLY TO MODALS, NAV, ETC
-STORE ROLES AS AN ARRAY ON THE USER MODEL
+#USER ROLES
+#MULTI SELECT, CHANGE MODALS TO AUTH.USER.ROLES.FIND(ROLE=>ROLE===INTENDED ROLE)
+APPLY TO MODALS
+#NAV
+ETC
+
+#STORE ROLES AS AN ARRAY ON THE USER MODEL
 CAN'T SEE EDIT WITHOUT EDIT
 CAN'T SEE PAYMENT WITHOUT ACCOUNTING
 CAN'T SEE DELETE WITHOUT DELETE
