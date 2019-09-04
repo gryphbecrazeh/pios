@@ -6,6 +6,10 @@ SHOW ALL / SHOW FILTERED RESULTS CAN GET OUT OF SYNC AND REVERSE ITSELF
 
 alert DBKEYS has not ready to ship, even though status is ready to ship
 
+removing items from order needs refresh after every removed item
+
+Alerts can repopulate on refresh, probably getting all alerts from somewhere else
+
 ##############################################################################################################
 TO DO
 ##############################################################################################################
