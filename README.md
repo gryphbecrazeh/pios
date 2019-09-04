@@ -13,8 +13,10 @@ alert DBKEYS has not ready to ship, even though status is ready to ship
 
 removing items from order needs refresh after every removed item
 
-Alerts can repopulate on refresh, probably getting all alerts from somewhere else, attempted to fix this issue, but now they disappear completely on refresh
-if(!alerts||!alerts.length>0) doesn't work, it is possibly still storing the alerts somewhere
+#Alerts can repopulate on refresh, probably getting all alerts from somewhere else, attempted to fix this issue, but now they disappear completely on refresh
+#if(!alerts||!alerts.length>0) doesn't work, it is possibly still storing the alerts somewhere
+
+shuffling pages can cause app to crash because of alerts not being able an order that's status works, problem being that alerts is being called at the same time, or too soon, before getItems has brought the items to the store
 
 ##############################################################################################################
 TO DO
