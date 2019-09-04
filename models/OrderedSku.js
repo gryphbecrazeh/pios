@@ -35,7 +35,8 @@ const OrderedSkuSchema = new Schema({
 		type: String
 	},
 	vendor: {
-		type: String
+		type: String,
+		required: true
 	},
 	brand: {
 		type: String
@@ -72,6 +73,10 @@ const OrderedSkuSchema = new Schema({
 	costDaroma: {
 		type: String
 	},
+	totalCost: {
+		type: Number,
+		required: true
+	},
 	weight: {
 		type: Number
 	},
@@ -97,7 +102,8 @@ const OrderedSkuSchema = new Schema({
 		type: Number
 	},
 	sku: {
-		type: String
+		type: String,
+		required: true
 	},
 	shipmentStatus: {
 		type: String,
@@ -120,6 +126,12 @@ const OrderedSkuSchema = new Schema({
 		type: Date
 	},
 	received_quantity: {
+		type: Number
+	},
+	inStock_date: {
+		type: Date
+	},
+	inStock_quantity: {
 		type: Number
 	}
 });

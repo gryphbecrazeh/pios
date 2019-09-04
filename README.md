@@ -10,6 +10,8 @@ alert DBKEYS has not ready to ship, even though status is ready to ship
 TO DO
 ##############################################################################################################
 
+Add left and right arrows to month name in financial page, add year next to month name if not this year
+
 Add uncontrolled drop down to Status, manufacturer, sent to
 
 ADD IN ABILITY TO ADD OPTIONS TO THE PRODUCTS
