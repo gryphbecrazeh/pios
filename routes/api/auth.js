@@ -31,12 +31,11 @@ router.post("/", (req, res) => {
 				// { expiresIn: 3600 },
 				(err, token) => {
 					if (err) throw err;
+					delete user.password;
 					res.json({
 						token,
 						user: {
-							id: user.id,
-							name: user.name,
-							email: user.email
+							...user._doc
 						}
 					});
 				}

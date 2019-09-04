@@ -5,6 +5,8 @@ BUGS
 #CHANGING A USER LOGS YOU INTO THAT USER
 #CREATING NEW USER, ON INITIAL TABLE RENDER, DUPLICATES THE LOWEST USERS USER DATA, PROBABLY NOT WAITING TO RECOVER DATA FROM SERVER
 
+#unhandled rejection data of undefined when logging in, caused by navbar attempting to get roles, not returning roles
+
 SHOW ALL / SHOW FILTERED RESULTS CAN GET OUT OF SYNC AND REVERSE ITSELF
 
 alert DBKEYS has not ready to ship, even though status is ready to ship
@@ -17,6 +19,8 @@ if(!alerts||!alerts.length>0) doesn't work, it is possibly still storing the ale
 ##############################################################################################################
 TO DO
 ##############################################################################################################
+
+set up users actions to clear actions, and automatically close modal on success
 
 MAYBE STORE ALL RELATED ITEMS IN AN ARRAY ON THE ORDER
 PAYMENTS=[PAYMENT_ID,PAYMENT_ID,...]
