@@ -8,11 +8,15 @@ alert DBKEYS has not ready to ship, even though status is ready to ship
 
 removing items from order needs refresh after every removed item
 
-Alerts can repopulate on refresh, probably getting all alerts from somewhere else
+Alerts can repopulate on refresh, probably getting all alerts from somewhere else, attempted to fix this issue, but now they disappear completely on refresh
+if(!alerts||!alerts.length>0) doesn't work, it is possibly still storing the alerts somewhere
 
 ##############################################################################################################
 TO DO
 ##############################################################################################################
+
+MAYBE STORE ALL RELATED ITEMS IN AN ARRAY ON THE ORDER
+PAYMENTS=[PAYMENT_ID,PAYMENT_ID,...]
 
 Add left and right arrows to month name in financial page, add year next to month name if not this year
 
@@ -51,7 +55,7 @@ SHIPPING NEEDS TO BE READY AND UP (SENT TO, SHIPPING, SHIPPED, DELIVERED, ETC...
 
 #troubleshoot new claims issue
 
-change page layout so that table can change size based on screen realestate available
+#change page layout so that table can change size based on screen realestate available
 
 Redo Payment modal to have list view and be separate from add modal
 
@@ -139,8 +143,6 @@ CLAIMS/PROBLEMS PAGE
 
 #DELETE ALL RELATED ITEMS ON DELETE OF AN ORDER
 #DELETE MODAL (ARE YOU SURE)
-MAYBE STORE ALL RELATED ITEMS IN AN ARRAY ON THE ORDER
-PAYMENTS=[PAYMENT_ID,PAYMENT_ID,...]
 #NOTES
 #PAYMENTS
 #ORDERED SKUS

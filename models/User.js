@@ -21,8 +21,8 @@ const UserSchema = new Schema({
 		default: Date.now
 	},
 	roles: {
-		type: String,
-		default: "Guest"
+		type: Array,
+		default: ["Guest"]
 	}
 });
 
