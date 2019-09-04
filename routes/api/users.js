@@ -27,24 +27,51 @@ router.delete("/:id", (req, res) => {
 // @desc edit user
 // @accesss Private
 router.put("/:id", (req, res) => {
-	const { id, name, email, password } = req.body;
+	const { _id, name, email, password } = req.body;
+	let id = _id;
 	// Simple Validation
-	let newPassword;
-	// Create salt & hash
-	bcrypt.genSalt(10, (err, salt) => {
-		bcrypt.hash(password, salt, (err, hash) => {
-			if (err) throw err;
-			newPassword = hash;
-			let updatedUser = {
-				id,
-				name,
-				email
-			};
-			updatedUser.password = newPassword;
-			// Check Existing User
-			User.findByIdAndUpdate(id, updatedUser, { useFindAndModify: false });
+	if (!_id || !name || !email) {
+		return res.json({ msg: "Please enter all fields" });
+	}
+	if (password) {
+		let newPassword;
+		// Create salt & hash
+		bcrypt.genSalt(10, (err, salt) => {
+			bcrypt.hash(password, salt, (err, hash) => {
+				if (err) throw err;
+				newPassword = hash;
+				let updatedUser = {
+					id,
+					name,
+					email
+				};
+				updatedUser.password = newPassword;
+				// Check Existing User
+				User.findByIdAndUpdate(id, updatedUser, { useFindAndModify: false })
+					.then(item =>
+						res.json({
+							success: true,
+							msg: "User Successfully Editted, Password has been changed"
+						})
+					)
+					.catch(err => res.json(err));
+			});
 		});
-	});
+	} else {
+		let edittedUser = { ...req.body };
+		User.findByIdAndUpdate(id, edittedUser, { useFindAndModify: false })
+			.then(item => {
+				console.log("success");
+				return res.json({
+					user: item,
+					success: true,
+					msg: "User Successfully Editted"
+				});
+			})
+			.catch(err => {
+				return res.json(err);
+			});
+	}
 });
 
 // @route POST api/Users

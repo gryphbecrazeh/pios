@@ -23,6 +23,9 @@ const UserSchema = new Schema({
 	roles: {
 		type: Array,
 		default: ["Guest"]
+	},
+	permissions: {
+		type: Array
 	}
 });
 

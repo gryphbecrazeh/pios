@@ -2,6 +2,8 @@
 BUGS
 ##############################################################################################################
 
+CHANGING A USER LOGS YOU INTO THAT USER
+
 SHOW ALL / SHOW FILTERED RESULTS CAN GET OUT OF SYNC AND REVERSE ITSELF
 
 alert DBKEYS has not ready to ship, even though status is ready to ship
