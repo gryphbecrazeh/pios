@@ -1,8 +1,14 @@
+##############################################################################################################
 BUGS
+##############################################################################################################
+
 SHOW ALL / SHOW FILTERED RESULTS CAN GET OUT OF SYNC AND REVERSE ITSELF
+
 alert DBKEYS has not ready to ship, even though status is ready to ship
 
+##############################################################################################################
 TO DO
+##############################################################################################################
 
 Add uncontrolled drop down to Status, manufacturer, sent to
 
@@ -12,32 +18,32 @@ OPTION
 PRICE
 TOTAL SALE
 
-BRAND
-SKU
+#BRAND
+#SKU
 OPTIONS
 
-SIMPLISITIC VIEW FOR PICKING AND SENDING
-CHECK BOX, ADD TO RECIEVED, ONLY SHOW NON-RECEIVED ON VIEW
+#SIMPLISITIC VIEW FOR PICKING AND SENDING
+#CHECK BOX, ADD TO RECIEVED, ONLY SHOW NON-RECEIVED ON VIEW
 
-ONLY FOR RECEIVING ITEM, NOTHING TO DO WITH ORDERING
+#ONLY FOR RECEIVING ITEM, NOTHING TO DO WITH ORDERING
 
-OVERHAUL GET ITEMS
-RECEIVE REQUIREMENTS FROM PAGES
+#OVERHAUL GET ITEMS
+#RECEIVE REQUIREMENTS FROM PAGES
 MASTER HAS NONE
 SHIPPING NEEDS TO BE READY AND UP (SENT TO, SHIPPING, SHIPPED, DELIVERED, ETC...)
-RECEIVE FILTERS FROM FILTERS
-START DATE
-END DATE
-SEARCH QUERY
-NEED TO STORE ALL OF THESE IN JSON
-CACHE THE RESULT IN THE CACHE OF THE SERVER AS A STRINGIFIED JSON OBJECT
-PULL FROM CACHE IF AVAILABLE, ELSE PULL FROM SERVER AND THEN CACHE
+#RECEIVE FILTERS FROM FILTERS
+#START DATE
+#END DATE
+#SEARCH QUERY
+#NEED TO STORE ALL OF THESE IN JSON
+#CACHE THE RESULT IN THE CACHE OF THE SERVER AS A STRINGIFIED JSON OBJECT
+#PULL FROM CACHE IF AVAILABLE, ELSE PULL FROM SERVER AND THEN CACHE
 
-USER -> PAGES -> FILTERS -> SERVER -> ITEMS -> ALERTS
+#USER -> PAGES -> FILTERS -> SERVER -> ITEMS -> ALERTS
 
-change order status render on front end to better display statuses, need to overhaul the table generator
+#change order status render on front end to better display statuses, need to overhaul the table generator
 
-troubleshoot new claims issue
+#troubleshoot new claims issue
 
 change page layout so that table can change size based on screen realestate available
 
@@ -47,7 +53,7 @@ change ordersheet so that if this is a new order, it will only show required fie
 edit will show all empty fields red
 !this.props.order?
 
-show required fields in notes modal
+#show required fields in notes modal
 
 show alerts on fails on all modals
 
@@ -66,13 +72,15 @@ create user roles, filter buttons based on user roles
 
 add minimize option to table columns
 
-add minimize option to alerts tab to make table take up more of the screen
+#add minimize option to alerts tab to make table take up more of the screen
 
 wrap filters in card with minimize option
 
 implement financial reports
 
+##############################################################################################################
 TO CREATE
+##############################################################################################################
 
 PERSONALIZED WELCOME PAGE WITH FAVORITED PAGES
 SAVED REPORTS
@@ -86,6 +94,7 @@ GET SERVER RESPONSE ON MODALS TO AUTO CLOSE OR DISPLAY ALERTS
 FINANCIAL PAGE
 SET PAYMENT TO AUTO FILL BASED ON USER ROLES, AND PAYABLE OPTIONS
 FILTER(KEY=>KEY.PAYABLE===TRUE&&USER.AUTH.ROLES.FIND(ROLE=>ROLE==="ACCOUNTING"))
+ADD CHECKBOX TO EVERY ORDER FOR MULTIPLE SELECT, PAYMENTS MADE TO THIS WOULD HAVE TO BE IN FULL
 
 CONTAINER TRACKER
 ENTER IN CONTAINER ORDERS
@@ -99,37 +108,38 @@ SHIPPING FROM
 SHIPPING TO
 
 CLAIMS/PROBLEMS PAGE
-CLAIM/PROBLEM MODEL/COLLECTION
-USER
-CUSTOMER
-ORDER ID
-ORDER NUMBER
-STATUS
-PROBLEM
-REPLACEMENT SKUS
-REPLACEMENT SHIPMENTS
-CONTACTED
-LAST CONTACT
-LAST UPDATE
-NOTES
+#CLAIM/PROBLEM MODEL/COLLECTION
+#USER
+#CUSTOMER
+#ORDER ID
+#ORDER NUMBER
+#STATUS
+#PROBLEM
+#REPLACEMENT SKUS
+#REPLACEMENT SHIPMENTS
+#CONTACTED
+#LAST CONTACT
+#LAST UPDATE
+#NOTES
 
-ORDERED SKU COLLECTION
-GET SKUS ON TOGGLE MODAL
-ORDER ID
-ORDER NUMBER
-SKU
-QUANTITY
-DEALER/VENDOR
-MANUFACTURER
+#ORDERED SKU COLLECTION
+#GET SKUS ON TOGGLE MODAL
+#ORDER ID
+#ORDER NUMBER
+#SKU
+#QUANTITY
+#DEALER/VENDOR
+#MANUFACTURER
 
-DELETE ALL RELATED ITEMS ON DELETE OF AN ORDER
-DELETE MODAL (ARE YOU SURE)
+#DELETE ALL RELATED ITEMS ON DELETE OF AN ORDER
+#DELETE MODAL (ARE YOU SURE)
 MAYBE STORE ALL RELATED ITEMS IN AN ARRAY ON THE ORDER
 PAYMENTS=[PAYMENT_ID,PAYMENT_ID,...]
-NOTES
-PAYMENTS
-ORDERED SKUS
-CHANGES? (MAYBE KEEP AND ADD A RESTORE FUNCTION)
+#NOTES
+#PAYMENTS
+#ORDERED SKUS
+#CHANGES? (MAYBE KEEP AND ADD A RESTORE FUNCTION)
+MAYBE ARCHIVE RATHER THAN DELETE
 
 LOADING BACKDROP, WITH SPINNER
 
@@ -201,6 +211,8 @@ MANAGE PAGE NAME SHOWN IN DROPDOWN ON NAVBAR
 
 NAVBAR
 ADD BADGES TO EASILY SHOW HOW MANY ALERTS ARE ON EACH PAGE
+GET RID OF DROPDOWN ON MOBILE VIEW
+LOAD IN FULL ALTERNATE OPTION ON MOBILE VIEW
 
 MINIMIZE/MAXIMIZE COLUMNS
 GRAB ALL COLUMNS BY IDENTIFIER
