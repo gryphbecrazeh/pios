@@ -16,7 +16,8 @@ removing items from order needs refresh after every removed item
 #Alerts can repopulate on refresh, probably getting all alerts from somewhere else, attempted to fix this issue, but now they disappear completely on refresh
 #if(!alerts||!alerts.length>0) doesn't work, it is possibly still storing the alerts somewhere
 
-alerts do not generate on page load
+#alerts do not generate on page refresh
+#pipelined the get requests, on component did mount, it gets the items with filters from the filter reducer, on get completetion, it then calls getAlerts with the results after #the item reducer has put the results in the state, the alerts container just passes back all the alerts from the redux state
 
 shuffling pages can cause app to crash because of alerts not being able an order that's status works, problem being that alerts is being called at the same time, or too soon, before getItems has brought the items to the store
 receiving manager->order manager crashes app on getAlerts
