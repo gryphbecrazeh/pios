@@ -16,7 +16,14 @@ removing items from order needs refresh after every removed item
 #Alerts can repopulate on refresh, probably getting all alerts from somewhere else, attempted to fix this issue, but now they disappear completely on refresh
 #if(!alerts||!alerts.length>0) doesn't work, it is possibly still storing the alerts somewhere
 
+alerts do not generate on page load
+
 shuffling pages can cause app to crash because of alerts not being able an order that's status works, problem being that alerts is being called at the same time, or too soon, before getItems has brought the items to the store
+receiving manager->order manager crashes app on getAlerts
+
+#ON LOAD, VALIDATION DOES NOT HAPPEN UNTIL AFTER A FEW CYCLES, BOOKMARKING PAGES ACCOMPLISHES NOTHING
+#Navbar and welcome page seem to cause this issue
+#changed from isAuthenticated to checking if the token exists in the local storage, doesn't reload every time, can bookmark and just enter urls directly
 
 ##############################################################################################################
 TO DO
