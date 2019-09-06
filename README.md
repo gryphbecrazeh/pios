@@ -19,16 +19,93 @@ removing items from order needs refresh after every removed item
 #alerts do not generate on page refresh
 #pipelined the get requests, on component did mount, it gets the items with filters from the filter reducer, on get completetion, it then calls getAlerts with the results after #the item reducer has put the results in the state, the alerts container just passes back all the alerts from the redux state
 
-shuffling pages can cause app to crash because of alerts not being able an order that's status works, problem being that alerts is being called at the same time, or too soon, before getItems has brought the items to the store
-receiving manager->order manager crashes app on getAlerts
+#shuffling pages can cause app to crash because of alerts not being able an order that's status works, problem being that alerts is being called at the same time, or too soon, #before getItems has brought the items to the store
+#receiving manager->order manager crashes app on getAlerts
 
 #ON LOAD, VALIDATION DOES NOT HAPPEN UNTIL AFTER A FEW CYCLES, BOOKMARKING PAGES ACCOMPLISHES NOTHING
 #Navbar and welcome page seem to cause this issue
 #changed from isAuthenticated to checking if the token exists in the local storage, doesn't reload every time, can bookmark and just enter urls directly
 
 ##############################################################################################################
+TO DO CHANGES
+##############################################################################################################
+
+Make the changes below, need to find and replace in all explicit code, this will not be fun
+
+addrCheck -> addresses_checked
+billToAddress -> bill_to_address
+billToChecked -> bill_to_checked
+billToState -> bill_to_state
+billToZip -> bill_to_zip
+caTax -> ca_tax
+caTaxPaid -> ca_tax_paid
+caTaxPaidDate -> ca_tax_paid_date
+creation_date -> creation_date
+disclaim -> disclaimer
+lastUpdated -> last_updated
+netDue -> net
+netCrate -> net_crate
+netFreight -> net_freight
+netPaid -> net_paid
+netPaidDate -> net_paid_date
+net -> net_profit
+nysTax -> nys_tax
+nysTaxPaid -> nys_tax_paid
+nysTaxPaidDate -> nys_tax_paid_date
+custDue -> order
+date -> order_date
+name -> order_name
+orderNum -> order_number
+custPaid -> order_paid
+custPaidDate -> order_paid_date
+orderSkus -> order_skus
+orderStatus -> order_status
+total -> order_total
+ship -> ship_as
+shipped -> ship_date
+shipToAddress -> ship_to_address
+shipToChecked -> ship_to_checked
+st -> ship_to_state
+shipToZip -> ship_to_zip
+rcvd -> skus_received
+sentTo -> vendor
+
+##############################################################################################################
 TO DO
 ##############################################################################################################
+
+---
+
+## Shipping an Order Process
+
+Add skus to order from master sheet, skus status=pending
+->
+goto order manager
+->
+check if item is currently in stock or needs to be sent to the vendor
+->
+ON SEND TO VENDOR, set status as sent to vendor
+->
+ON VENDOR FULFILLED DELIVERY, set status to shipped, set tracking number to vendor provided, if not yet shipped by vendor, generate alert that an order has been shipped without a tracking number on the shipping manager page
+||
+populate on receiving manager, flag if time exceeds expected delivery date
+->
+ON CURRENTLY IN STOCK, set sku status to ready to be shipped, check if all other shipments matching that orderId are ready to be shipped
+->
+ON ALL OTHER SKUS READY TO BE SHIPPED, change order status to "ready to be shipped", populate in orders ready to ship
+||
+remove from skus to be checked, order stays pending until all skus are ready to be shipped
+->
+ON SHIP, create shipment, select all skus to be added onto shipment, enter tracking number, estimated delivery date, show shipment in shipping manager
+->
+ON ALL PRODUCTS SHIPPED: set order status to shipped
+
+---
+
+move add customer orders option to nav bar after dropdown
+
+add create claim option on claims page
+search for order to create a claim for
 
 set up users actions to clear actions, and automatically close modal on success
 
