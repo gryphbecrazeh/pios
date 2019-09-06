@@ -252,17 +252,17 @@ REACT TRANSITIONS
 CHANGE GET BEHAVIOR TO MAKE GET REQUESTS ON CHANGE, STORE RESULTS IN CACHE
 #SKU BUTTONS NEED TO SHOW BRAND AND COST (MAYBE)
 
-USERS
+#USERS
 #USER ROLES
 #MULTI SELECT, CHANGE MODALS TO AUTH.USER.ROLES.FIND(ROLE=>ROLE===INTENDED ROLE)
-APPLY TO MODALS
+#APPLY TO MODALS
 #NAV
-ETC
+#ETC
 
 #STORE ROLES AS AN ARRAY ON THE USER MODEL
-CAN'T SEE EDIT WITHOUT EDIT
-CAN'T SEE PAYMENT WITHOUT ACCOUNTING
-CAN'T SEE DELETE WITHOUT DELETE
+#CAN'T SEE EDIT WITHOUT EDIT
+#CAN'T SEE PAYMENT WITHOUT ACCOUNTING
+#CAN'T SEE DELETE WITHOUT DELETE
 
 internal notification and message system
 
@@ -330,3 +330,13 @@ RESEARCH
 Dynamic pages for react to use for reports, printing order forms, claims forms, etc
 
 Adding Slack onto welcome screen, as well as pushing alerts to slack
+
+##############################################################################################################
+DESIGN CHANGES
+##############################################################################################################
+
+? Create Vertical Navbar similar to wordpress
+? Create Minimizable card with tabs inside, filters tab, reports tab, special actions tab
+? Move Add Customer Order(s) button to top navbar next to search
+? User Welcome Screen with reports based on user role, subscriptions, notifications, changes, alerts
+? Modals show errors on !success
