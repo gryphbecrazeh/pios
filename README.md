@@ -2,6 +2,10 @@
 BUGS
 ##############################################################################################################
 
+order manager can get oout of sync and lose all products, but re-appear on refresh
+disappear on entering and exitting a modal from another page, more than likely from the clear orderedSkus function
+-to fix, get ordered skus on page load of orderManager, or, getOrderedSkus through top componenet, and filter the ordered skus when accessed from order specific modals, and never clear
+
 #CHANGING A USER LOGS YOU INTO THAT USER
 #CREATING NEW USER, ON INITIAL TABLE RENDER, DUPLICATES THE LOWEST USERS USER DATA, PROBABLY NOT WAITING TO RECOVER DATA FROM SERVER
 
@@ -99,6 +103,24 @@ remove from skus to be checked, order stays pending until all skus are ready to 
 ON SHIP, create shipment, select all skus to be added onto shipment, enter tracking number, estimated delivery date, show shipment in shipping manager
 ->
 ON ALL PRODUCTS SHIPPED: set order status to shipped
+
+currently in stock ->
+editOrderedSku(
+instock_quantity=value
+instock_date=Date.now()
+remaining_quantity=skus_quantity-value
+)
+
+Send to Vendor ->
+Modal
+Deliver To
+-o Customer
+-o Kitchenall
+createNewShipment(
+{...orderedSku,
+quantity:value
+}
+)
 
 ---
 
