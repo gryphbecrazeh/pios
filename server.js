@@ -4,7 +4,7 @@ const config = require("config");
 
 const app = express();
 
-// Body Parser Middleware
+// Express Parse Middleware
 app.use(express.json());
 
 // DB CONFIRG

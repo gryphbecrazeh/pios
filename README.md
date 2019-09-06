@@ -78,6 +78,9 @@ sentTo -> vendor
 TO DO
 ##############################################################################################################
 
+change add products/upload products modal to be visible only if you have create and edit options,
+change backend security so that all routes are set to private and require the user to be logged in before returning anything
+
 ---
 
 ## Shipping an Order Process
