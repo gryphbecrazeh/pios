@@ -1,4 +1,28 @@
 ##############################################################################################################
+QUESTIONS
+##############################################################################################################
+On the order manager page
+once an order is ready to ship
+awaiting items have been received, and others have been in stock and ready
+
+# how would the quantity react to broken up orders?
+
+like 1 in stock, 1 on order to ka, and 1 on order that will be delivered to the customer
+the shipment would only be required to keep track of the orders leaving ka as the order being delivered fro the vendor to the customer would be it's own shipment, to be determined
+when the order is ready at the ka level, only the amounts ready should be provided
+to obtain that value, it should adjust the remaining quantity
+the total quantities should be stored inside of object in the database
+therefore there should be a ka-ship talley that is set by the amounts available in ka are determined by what is in stock and what is received, the number shown on the ready card should be the ka-talley, and have no reflection of the items being sent, and should absolutely not be reflected by the skus_quantity value as that value is soley for record purposes,and determines the remaining value, addressing that value directly will misrepresent the total amount being sent in the shipment from KA
+
+# should we allow for breaking up orders to ship separately?
+
+I think so, I doubt that we would wait until an order is completely fulfilled to send out, ideally it will be, as well as being paid completely in full, I will need to research further into this problem to find out if there are ever cases in which we send out an order before it is paid in full, I know we shouldn't but who knows.
+
+# What is the minimum criteria to be met for an order to be ready to ship?
+
+If we do decide to move forward with a shipment before it has been paid for in its entirety/etc, then the order should definitely be flagged as important, and be easy to follow then entirety of the shipment
+
+##############################################################################################################
 BUGS
 ##############################################################################################################
 
