@@ -49,6 +49,9 @@ const OrderedSkuSchema = new Schema({
 		required: true,
 		default: 1
 	},
+	skus_remaining_quantity: {
+		type: Number
+	},
 	price: {
 		type: Number
 	},
@@ -133,6 +136,10 @@ const OrderedSkuSchema = new Schema({
 	},
 	inStock_quantity: {
 		type: Number
+	},
+	stock_array: {
+		type: Array,
+		default: []
 	}
 });
 

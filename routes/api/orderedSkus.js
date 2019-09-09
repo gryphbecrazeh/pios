@@ -5,13 +5,17 @@ const router = express.Router();
 const OrderedSku = require("../../models/OrderedSku");
 
 // @route GET api/orderedSkus
-// @desc get ALL orderedSkus for an order
+// @desc get ALL orderedSkus
 // @accesss PUBLIC
 router.get("/", (req, res) => {
 	OrderedSku.find()
 		.sort({ date: -1 })
 		.then(orderedSkus => res.json(orderedSkus));
 });
+// @route GET api/orderedSkus+ordder number
+// @desc get ALL orderedSkus for an order
+// @accesss PUBLIC
+
 router.get("/:id", (req, res) => {
 	OrderedSku.find()
 		.sort({ date: 1 })
@@ -39,7 +43,19 @@ router.delete("/:id", (req, res) => {
 // @route PUT api/orderedSkus:id
 // @desc edit orderedSku
 // @accesss Private
-router.put("/:id", (req, res) => {});
+router.put("/:id", (req, res) => {
+	cache = [];
+	const { orderedSku } = req.body;
+	OrderedSku.findByIdAndUpdate(orderedSku._id, orderedSku, {
+		useFindAndModify: false
+	})
+		.then(item => {
+			res.json({ success: true, msg: "Save Successful" });
+		})
+		.catch(err => {
+			res.json(err);
+		});
+});
 
 // @route POST api/orderedSkus
 // @desc make new ordered Sku

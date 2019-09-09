@@ -3,8 +3,13 @@
 	"version": "1.0.0",
 	"description": "Product Inventory and Order System",
 	"main": "server.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gryphbecrazeh/pios.git"
+	},
 	"scripts": {
 		"client-install": "npm install --prefix client",
+		"rename-client": "mv pios-front-end client",
 		"start": "node server.js",
 		"server": "nodemon server.js",
 		"client": "npm start --prefix client",
@@ -13,6 +18,7 @@
 	"author": "Christopher Cordine",
 	"license": "ISC",
 	"dependencies": {
+		"pios-front-end": "git+https://github.com/gryphbecrazeh/pios-front-end.git",
 		"bcryptjs": "^2.4.3",
 		"concurrently": "^4.1.2",
 		"config": "^3.2.2",
