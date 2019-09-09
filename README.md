@@ -1,9 +1,12 @@
 ##############################################################################################################
 QUESTIONS
 ##############################################################################################################
-On the order manager page
-once an order is ready to ship
-awaiting items have been received, and others have been in stock and ready
+
+## On the order manager page
+
+## once an order is ready to ship
+
+## awaiting items have been received, and others have been in stock and ready
 
 # how would the quantity react to broken up orders?
 
