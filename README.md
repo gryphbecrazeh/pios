@@ -29,6 +29,10 @@ If we do decide to move forward with a shipment before it has been paid for in i
 BUGS
 ##############################################################################################################
 
+Ubuntu deployment won't start, node-sass issue
+
+# Here is the solution sudo npm install --unsafe-perm node-sass
+
 order manager can get oout of sync and lose all products, but re-appear on refresh
 disappear on entering and exitting a modal from another page, more than likely from the clear orderedSkus function
 -to fix, get ordered skus on page load of orderManager, or, getOrderedSkus through top componenet, and filter the ordered skus when accessed from order specific modals, and never clear
