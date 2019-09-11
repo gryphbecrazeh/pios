@@ -37,6 +37,12 @@ order manager can get out of sync and lose all products, but re-appear on refres
 disappear on entering and exitting a modal from another page, more than likely from the clear orderedSkus function
 -to fix, get ordered skus on page load of orderManager, or, getOrderedSkus through top componenet, and filter the ordered skus when accessed from order specific modals, and never clear
 
+#removing items from order can remove seemingly random item
+
+adding item as ready to ship, adds the item to whatever order is ready to ship at the time
+
+setting order as ready to ship on order manager page, causes everything to disappear
+
 #CHANGING A USER LOGS YOU INTO THAT USER
 #CREATING NEW USER, ON INITIAL TABLE RENDER, DUPLICATES THE LOWEST USERS USER DATA, PROBABLY NOT WAITING TO RECOVER DATA FROM SERVER
 
