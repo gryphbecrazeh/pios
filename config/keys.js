@@ -12,3 +12,11 @@
 // module.exports = {
 // 	mongoURI: "mongodb://build:pass@localhost/PIOS"
 // };
+
+// {
+// 	user: "build",
+// 		pwd: "pass",
+// 			roles: [
+// "readWrite"
+// 			]
+// }
