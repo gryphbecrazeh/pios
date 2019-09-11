@@ -1,4 +1,10 @@
 ##############################################################################################################
+NOTICE
+##############################################################################################################
+
+## We are deploying this week, need to set up static ip address, as well as raspberri pi to function as server
+
+##############################################################################################################
 QUESTIONS
 ##############################################################################################################
 
@@ -29,11 +35,21 @@ If we do decide to move forward with a shipment before it has been paid for in i
 BUGS
 ##############################################################################################################
 
+<<<<<<< Updated upstream
 Ubuntu deployment won't start, node-sass issue
 
 # Here is the solution sudo npm install --unsafe-perm node-sass
 
 order manager can get out of sync and lose all products, but re-appear on refresh
+=======
+- ORDER CHECKED AND INSTOCK APPENEDED IT TO ANOTHER ORDER \*
+
+- SELECTING CURRENTLY IN STOCK BLANKS THE PAGE RATHER THAN GETTING THE UPDATED INFORMATION \*
+
+- REMOVING ORDERD SKUS STILL DOESN'T HAPPEN IMMEDIATELY/REMOVING ORDERED SKUS REMOVES THINGS OTHER THAN THE ORDERED SKU THAT WE ARE ATTEMPTING TO REMOVE \*
+
+order manager can get oout of sync and lose all products, but re-appear on refresh
+>>>>>>> Stashed changes
 disappear on entering and exitting a modal from another page, more than likely from the clear orderedSkus function
 -to fix, get ordered skus on page load of orderManager, or, getOrderedSkus through top componenet, and filter the ordered skus when accessed from order specific modals, and never clear
 
