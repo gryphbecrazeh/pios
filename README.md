@@ -35,7 +35,7 @@ If we do decide to move forward with a shipment before it has been paid for in i
 BUGS
 ##############################################################################################################
 
-Ubuntu deployment won't start, node-sass issue
+# Ubuntu deployment won't start, node-sass issue
 
 # Here is the solution sudo npm install --unsafe-perm node-sass
 
@@ -128,6 +128,18 @@ sentTo -> vendor
 ##############################################################################################################
 TO DO
 ##############################################################################################################
+
+Add second modal to create shipment modal
+pass in state as shipment prop, when passing to db {...this.props.shipment,...this.state}
+second modal verifies recipient information, add notes, select lift gate, etc
+enter any cod amounts
+then the post request will be made, and toggle both the inner and outter modals
+pass in toggle to modal, on close toggle/success of post on second modal, execute the toggleParent function passed in via props
+
+add outgoing orders page
+
+where its going to, what are the contents, is there a cod, is there a lift gate, only show orders sent via kitchenall/kas as carrrier
+generate routes here, estimated delivery times
 
 change add products/upload products modal to be visible only if you have create and edit options,
 change backend security so that all routes are set to private and require the user to be logged in before returning anything
