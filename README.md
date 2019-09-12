@@ -129,12 +129,14 @@ sentTo -> vendor
 TO DO
 ##############################################################################################################
 
-Add second modal to create shipment modal
-pass in state as shipment prop, when passing to db {...this.props.shipment,...this.state}
-second modal verifies recipient information, add notes, select lift gate, etc
+#Add second modal to create shipment modal
+#pass in state as shipment prop, when passing to db {...this.props.shipment,...this.state}
+#second modal verifies recipient information, add notes, select lift gate, etc
 enter any cod amounts
-then the post request will be made, and toggle both the inner and outter modals
-pass in toggle to modal, on close toggle/success of post on second modal, execute the toggleParent function passed in via props
+#then the post request will be made, and toggle both the inner and outter modals
+#pass in toggle to modal, on close toggle/success of post on second modal, execute the toggleParent function passed in via props
+
+add capacity to add options onto orderedSku, add notes to ordered sku
 
 add outgoing orders page
 

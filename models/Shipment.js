@@ -39,7 +39,7 @@ const ShipmentSchema = new Schema({
 		type: Array
 	},
 	lift_gate: {
-		type: Boolean
+		type: Number
 	},
 	recipient_name: {
 		type: String
@@ -56,7 +56,10 @@ const ShipmentSchema = new Schema({
 	cod_amount: {
 		type: Number
 	},
-	note: {
+	recipient_attention: {
+		type: String
+	},
+	notes: {
 		type: String
 	}
 });
