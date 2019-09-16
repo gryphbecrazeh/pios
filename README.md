@@ -41,6 +41,9 @@ BUGS
 
 order manager can get out of sync and lose all products, but re-appear on refresh
 
+#Fixed--9/16/2019- Pre-Ship Order Manager is based on filters, should show all, getItems should pass in all
+#Fixed--9/16/2019- need to get items in master and financial based on filter still
+
 #Fixed--9/11/2019- ORDER CHECKED AND INSTOCK APPENEDED IT TO ANOTHER ORDER \*
 
 #Fixed--9/11/2019- SELECTING CURRENTLY IN STOCK BLANKS THE PAGE RATHER THAN GETTING THE UPDATED INFORMATION \*
