@@ -15,7 +15,8 @@ const db = config.get("mongoURI");
 mongoose
 	.connect(db, {
 		useNewUrlParser: true,
-		useCreateIndex: true
+		useCreateIndex: true,
+		useUnifiedTopology: true
 	})
 	.then(() => console.log("MongoDB Connected..."))
 	.catch(err => console.log(err));
@@ -29,6 +30,8 @@ app.use("/api/products", require("./routes/api/products"));
 app.use("/api/notes", require("./routes/api/notes"));
 app.use("/api/claims", require("./routes/api/claims"));
 app.use("/api/orderedSkus", require("./routes/api/orderedSkus"));
+app.use("/api/shipments", require("./routes/api/shipments"));
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Sever started on port ${port}`));

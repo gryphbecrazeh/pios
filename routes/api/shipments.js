@@ -27,6 +27,7 @@ router.get("/", (req, res) => {
 // @access PUBLIC
 
 router.post("/", (req, res) => {
+	console.log("beginning save");
 	cache = [];
 	let {
 		order_number,
@@ -35,6 +36,7 @@ router.post("/", (req, res) => {
 		carrier,
 		weight_ship
 	} = req.body;
+	console.log("checking to save");
 	if (
 		!order_number ||
 		!customer_order ||
@@ -43,6 +45,7 @@ router.post("/", (req, res) => {
 		!weight_ship
 	)
 		res.status(400).json({ msg: "Please enter all fields" });
+	console.log("approved to save");
 	const newShipment = new Shipment({ ...req.body });
 	newShipment
 		.save()
@@ -74,7 +77,7 @@ router.put("/:id", (req, res) => {
 // @route DELETE api/shipments
 // @desc Delete Specific shipment
 // @access PUBLIC
-router.put("/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
 	cache = [];
 	Shipment.findById(req.params.id)
 		.then(item =>
