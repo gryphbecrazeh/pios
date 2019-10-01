@@ -35,11 +35,33 @@ If we do decide to move forward with a shipment before it has been paid for in i
 BUGS
 ##############################################################################################################
 
-# Ubuntu deployment won't start, node-sass issue
-
-# Here is the solution sudo npm install --unsafe-perm node-sass
+# Adding a sku, then confirming stock, then cancelling out of order generation, then trying to add another product to the order causes the modal to disappear
 
 order manager can get out of sync and lose all products, but re-appear on refresh
+
+order manager can get oout of sync and lose all products, but re-appear on refresh
+disappear on entering and exitting a modal from another page, more than likely from the clear orderedSkus function
+-to fix, get ordered skus on page load of orderManager, or, getOrderedSkus through top componenet, and filter the ordered skus when accessed from order specific modals, and never clear
+
+SHOW ALL / SHOW FILTERED RESULTS CAN GET OUT OF SYNC AND REVERSE ITSELF
+
+alert DBKEYS has not ready to ship, even though status is ready to ship
+
+removing items from order needs refresh after every removed item
+
+#fixed adding item as ready to ship, adds the item to whatever order is ready to ship at the time
+#was issue with how filtering ready to ship items worked
+
+#fixed--10/1/2019 setting product remaining quantity can result in negative numbers or double the number
+#Issue was caused by using a destructed variable of value and the e.target.value, when automatically changing the e.target.value, it does not change the value of the destructured value
+
+#fixed--10/1/2019 confirming stock quantity on skus to be checked can crash the app from the itemactions.js
+#wasn't passing filters and get alerts to action
+#Unhandled Rejection (TypeError): Cannot read property 'data' of undefined
+
+# Ubuntu deployment won't start, node-sass issue
+
+#Here is the solution sudo npm install --unsafe-perm node-sass
 
 #Fixed--9/16/2019- Pre-Ship Order Manager is based on filters, should show all, getItems should pass in all
 #Fixed--9/16/2019- need to get items in master and financial based on filter still
@@ -50,13 +72,7 @@ order manager can get out of sync and lose all products, but re-appear on refres
 
 #Fixed--9/11/2019- REMOVING ORDERD SKUS STILL DOESN'T HAPPEN IMMEDIATELY/REMOVING ORDERED SKUS REMOVES THINGS OTHER THAN THE ORDERED SKU THAT WE ARE ATTEMPTING TO REMOVE \*
 
-order manager can get oout of sync and lose all products, but re-appear on refresh
-disappear on entering and exitting a modal from another page, more than likely from the clear orderedSkus function
--to fix, get ordered skus on page load of orderManager, or, getOrderedSkus through top componenet, and filter the ordered skus when accessed from order specific modals, and never clear
-
 #removing items from order can remove seemingly random item
-
-adding item as ready to ship, adds the item to whatever order is ready to ship at the time
 
 #setting order as ready to ship on order manager page, causes everything to disappear
 
@@ -64,12 +80,6 @@ adding item as ready to ship, adds the item to whatever order is ready to ship a
 #CREATING NEW USER, ON INITIAL TABLE RENDER, DUPLICATES THE LOWEST USERS USER DATA, PROBABLY NOT WAITING TO RECOVER DATA FROM SERVER
 
 #unhandled rejection data of undefined when logging in, caused by navbar attempting to get roles, not returning roles
-
-SHOW ALL / SHOW FILTERED RESULTS CAN GET OUT OF SYNC AND REVERSE ITSELF
-
-alert DBKEYS has not ready to ship, even though status is ready to ship
-
-removing items from order needs refresh after every removed item
 
 #Alerts can repopulate on refresh, probably getting all alerts from somewhere else, attempted to fix this issue, but now they disappear completely on refresh
 #if(!alerts||!alerts.length>0) doesn't work, it is possibly still storing the alerts somewhere
